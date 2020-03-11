@@ -1,189 +1,149 @@
+<!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" >
 
-<head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>
-    第一篇要写些什么 | 不要靠近我啊啊啊
-</title>
-<link rel="shortcut icon" href="https://zrlreo.github.io//favicon.ico?v=1583905355748">
-<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
-<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<title>第一篇要写些什么 | 不似咸鱼是咸鱼</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.0/css/all.min.css">
+<link rel="shortcut icon" href="https://zrlreo.github.io//favicon.ico?v=1583910661180">
 <link rel="stylesheet" href="https://zrlreo.github.io//styles/main.css">
-<!-- js -->
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://zrlreo.github.io//media/js/jquery.sticky-sidebar.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="折腾了两天整出了这个简陋的博客，虽然还有大量地方需要改动，但由于我本人极其没有耐心所以就先这样了（逃
+3月的今天我还是一只不知未来在何方的菜鸡，自从决定备考GRE后便生生把自己过成了文科生。背单词、刷题、读英文小说、做初中水准的数学题......" />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zrlreo.github.io/">
+        <img src="https://zrlreo.github.io//images/avatar.png?v=1583910661180" class="site-logo">
+        <h1 class="site-title">不似咸鱼是咸鱼</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
         
-</head>
-
-<body>
-    <div class="main">
-        <div class="header">
-    <div class="nav">
-        <div class="logo">
-            <a href="https://zrlreo.github.io/">
-                <img class="avatar" src="https://zrlreo.github.io//images/avatar.png?v=1583905355748" alt="">
-            </a>
-            <div class="site-title">
-                <h1>
-                    不要靠近我啊啊啊
-                </h1>
-            </div>
-        </div>
-        <span class="menu-btn fa fa-align-justify"></span>
-        <div class="menu-container">
-            <ul>
-                
-                    
-                            <li>
-                                <a href="https://zrlreo.github.io/" class="menu">
-                                    首页
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="https://zrlreo.github.io/archives" class="menu">
-                                    归档
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="https://zrlreo.github.io/tags" class="menu">
-                                    标签
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="https://zrlreo.github.io/post/about" class="menu">
-                                    关于
-                                </a>
-                            </li>
-                            
-                                
-            </ul>
-        </div>
+          <a href="https://zrlreo.github.io/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="https://zrlreo.github.io/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="https://zrlreo.github.io/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="https://zrlreo.github.io/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
     </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      只想过平静的生活
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://zrlreo.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
 </div>
 
-<script>
-    $(document).ready(function() {
-        $(".menu-btn").click(function() {
-            $(".menu-container").slideToggle();
-        });
-        $(window).resize(function() {
 
-            if (window.matchMedia('(min-width: 960px)').matches) {
-                $(".menu-container").css('display', 'block')
-            } else {
-                $(".menu-container").css('display', 'none')
-            }
-
-        });
-    });
-</script>
-
-            <div id="main-content" class="post-detail main-container">
-                <!-- left -->
-                <div id="content" class="main-container-left">
-                    <article class="post i-card">
-                        <h2 class="post-title">
-                            第一篇要写些什么
-                        </h2>
-                        <div class="post-info">
-                            <time class="post-time">2020-03-11</time>
-                            
-                        </div>
-                        
-                                <div class="post-content">
-                                    <p>试一下<br>
-<img src="https://raw.githubusercontent.com/zrlreo/PicBed_PicGo/master/FCC386513DC93B33C390CFE08EC163AA.jpg" alt="" loading="lazy"></p>
-
-                                </div>
-                    </article>
-                    <!--  -->
-                    
-                        <div class="next-post">
-                            <div class="next">下一篇</div>
-                            <a href="https://zrlreo.github.io/post/about/">
-                                <h3 class="post-title">
-                                    关于
-                                </h3>
-                            </a>
-                        </div>
-                        
-                            <div id="disqus_thread"></div>
-                            <div id="gitalk-container"></div>
-                </div>
-                <!-- middle -->
-                <div class="main-container-middle"></div>
-                <!-- right -->
-                <div id="sidebar" class="main-container-right">
-                    
-                                <!-- id-card -->
-                                
-    <div class="id_card i-card">
-        <div class="id_card-avatar" style="background-image: url(https://zrlreo.github.io//images/avatar.png?v=1583905355748)">
-        </div>
-        <h1 class="id_card-title">
-            不要靠近我啊啊啊
-        </h1>
-        <h2 class="id_card-description">
-            我咸甚，此鱼安能及我也
-        </h2>
-        <!--  -->
-        <div class="id_card-sns">
-            <!-- github -->
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">第一篇要写些什么</h2>
+            <div class="post-date">2020-03-11</div>
             
-                    <!-- twitter -->
-                    
-                            <!-- weibo -->
-                            
-                                    <!-- facebook -->
-                                    
-
-        </div>
-    </div>
-    
-                                    
-
-                </div>
-
-
-
+            <div class="post-content" v-pre>
+              <p>折腾了两天整出了这个简陋的博客，虽然还有大量地方需要改动，但由于我本人极其没有耐心所以就先这样了（逃</p>
+<p>3月的今天我还是一只不知未来在何方的菜鸡，自从决定备考GRE后便生生把自己过成了文科生。背单词、刷题、读英文小说、做初中水准的数学题......本就薄弱的专业知识许久未碰，只能看着朋友们突飞猛进的专业水平挠头。</p>
+<p>尽管在相当长的一段时间里，和鸡阿姨的斗争将是我生活中的主要矛盾，我也打算尽可能的学点东西并在这里记录下来。</p>
+<p>（另外不知道PicGo怎么回事，一会能上传一会上传失败，逐渐暴躁）</p>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/zrlreo/PicBed_PicGo/master/969C3443BE2357F808B17F3E685B6A87.jpg" alt="" loading="lazy"></figure>
 
             </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zrlreo.github.io/post/about/">
+                  <h3 class="post-title">
+                    关于
+                  </h3>
+                </a>
+              </div>
+            
 
+            
 
-            <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
-  <a class="rss" href="https://zrlreo.github.io//atom.xml" target="_blank">RSS</a>
-</div>
+          </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
 </script>
 
 
-    </div>
-    <script>
-        $('#sidebar').stickySidebar({
-            topSpacing: 80,
-            // bottomSpacing: 60
-        });
-    </script>
-    
-</body>
 
+
+
+
+  </body>
 </html>

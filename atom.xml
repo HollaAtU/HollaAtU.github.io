@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zrlreo.github.io/</id>
-    <title>不要靠近我啊啊啊</title>
-    <updated>2020-03-11T05:42:46.595Z</updated>
+    <title>不似咸鱼是咸鱼</title>
+    <updated>2020-03-11T07:11:08.339Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zrlreo.github.io/"/>
     <link rel="self" href="https://zrlreo.github.io/atom.xml"/>
-    <subtitle>我咸甚，此鱼安能及我也</subtitle>
+    <subtitle>只想过平静的生活</subtitle>
     <logo>https://zrlreo.github.io/images/avatar.png</logo>
     <icon>https://zrlreo.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, 不要靠近我啊啊啊</rights>
+    <rights>All rights reserved 2020, 不似咸鱼是咸鱼</rights>
     <entry>
         <title type="html"><![CDATA[第一篇要写些什么]]></title>
         <id>https://zrlreo.github.io/post/di-yi-pian-yao-xie-xie-shi-me/</id>
         <link href="https://zrlreo.github.io/post/di-yi-pian-yao-xie-xie-shi-me/">
         </link>
         <updated>2020-03-11T03:33:46.000Z</updated>
-        <content type="html"><![CDATA[<p>试一下<br>
-<img src="https://raw.githubusercontent.com/zrlreo/PicBed_PicGo/master/FCC386513DC93B33C390CFE08EC163AA.jpg" alt="" loading="lazy"></p>
+        <content type="html"><![CDATA[<p>折腾了两天整出了这个简陋的博客，虽然还有大量地方需要改动，但由于我本人极其没有耐心所以就先这样了（逃</p>
+<p>3月的今天我还是一只不知未来在何方的菜鸡，自从决定备考GRE后便生生把自己过成了文科生。背单词、刷题、读英文小说、做初中水准的数学题......本就薄弱的专业知识许久未碰，只能看着朋友们突飞猛进的专业水平挠头。</p>
+<p>尽管在相当长的一段时间里，和鸡阿姨的斗争将是我生活中的主要矛盾，我也打算尽可能的学点东西并在这里记录下来。</p>
+<p>（另外不知道PicGo怎么回事，一会能上传一会上传失败，逐渐暴躁）</p>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/zrlreo/PicBed_PicGo/master/969C3443BE2357F808B17F3E685B6A87.jpg" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
@@ -26,13 +29,7 @@
         <link href="https://zrlreo.github.io/post/about/">
         </link>
         <updated>2019-01-25T11:09:48.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+        <content type="html"><![CDATA[<p>#没有坚定的意志也没有奋斗的觉悟，这里是一条标准咸鱼的学习/日常记录</p>
 ]]></content>
     </entry>
 </feed>
