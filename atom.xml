@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zrlreo.github.io/</id>
     <title>不似咸鱼是咸鱼</title>
-    <updated>2020-03-13T11:34:50.525Z</updated>
+    <updated>2020-03-13T12:07:26.844Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zrlreo.github.io/"/>
     <link rel="self" href="https://zrlreo.github.io/atom.xml"/>
@@ -90,15 +90,6 @@ class Solution:
 <p>尽管在相当长的一段时间里，和鸡阿姨的斗争将是我生活中的主要矛盾，我也打算尽可能的学点东西并在这里记录下来。</p>
 <p>（另外不知道PicGo怎么回事，一会能上传一会上传失败，逐渐暴躁）</p>
 <figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/zrlreo/PicBed_PicGo/master/969C3443BE2357F808B17F3E685B6A87.jpg" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[关于]]></title>
-        <id>https://zrlreo.github.io/post/about/</id>
-        <link href="https://zrlreo.github.io/post/about/">
-        </link>
-        <updated>2020-03-11T02:18:49.000Z</updated>
-        <content type="html"><![CDATA[<p><strong>没有坚定的意志也没有奋斗的觉悟，这里是一条标准咸鱼的学习/日常记录</strong></p>
 ]]></content>
     </entry>
 </feed>
