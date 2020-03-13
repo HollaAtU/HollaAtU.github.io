@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zrlreo.github.io/</id>
     <title>不似咸鱼是咸鱼</title>
-    <updated>2020-03-11T07:52:12.176Z</updated>
+    <updated>2020-03-13T11:34:50.525Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zrlreo.github.io/"/>
     <link rel="self" href="https://zrlreo.github.io/atom.xml"/>
@@ -10,6 +10,75 @@
     <logo>https://zrlreo.github.io/images/avatar.png</logo>
     <icon>https://zrlreo.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 不似咸鱼是咸鱼</rights>
+    <entry>
+        <title type="html"><![CDATA[【LeetCode】 2.Add Two Numbers]]></title>
+        <id>https://zrlreo.github.io/post/leetcode-2add-two-numbers/</id>
+        <link href="https://zrlreo.github.io/post/leetcode-2add-two-numbers/">
+        </link>
+        <updated>2020-03-13T10:51:16.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="题干">题干</h1>
+<p>难度：Medium</p>
+<p>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
+<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
+<p>Example:</p>
+<blockquote>
+<p>Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>
+Output: 7 -&gt; 0 -&gt; 8<br>
+Explanation: 342 + 465 = 807.</p>
+</blockquote>
+<h1 id="解析">解析</h1>
+<p>由于加数与结果都是逆序排列的，就直接每个节点之间相加。然后需要考虑的问题就是进位了，用一个变量记录上一位的进位，在计算当前位数的和时加上这个进位。</p>
+<p>退出循环时根据l1与l2的空与否有三种情况，需要分别讨论。需要注意的是在每一种情况下，不能直接将循环中得出的最后一个节点接上非空的那一个链表：因为可能还有进位。当l1或l2为空，将他们处理为同一变量名l。当l1与l2都为空时，考虑到进位问题，是不能直接返回的，只有在进位为0时才能返回，进位不为0就将其处理为多加一个存储的数字为0的节点。此时循环的结束条件是进位变量为0，但是lnext到为空时不应该停止处理，l为空时当前位值是取不到的，需要进行单独处理。</p>
+<h1 id="python">Python</h1>
+<pre><code># Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -&gt; ListNode:  
+        firstVal = l1.val + l2.val
+        ret = ListNode(firstVal % 10)
+        nowNode = ret
+        carry = firstVal // 10
+        l1 = l1.next
+        l2 = l2.next
+        while l1 != None and l2 != None:
+            nowVal = carry + l1.val + l2.val
+            newNode = ListNode(nowVal % 10)
+            nowNode.next = newNode
+            nowNode = newNode
+            carry = nowVal // 10
+            l1 = l1.next
+            l2 = l2.next
+ 
+        if l1 != None:
+            l = l1
+        elif l2 != None:
+            l = l2
+        else:
+            if carry == 0:
+                return ret
+            else:
+                l = ListNode(0)
+        while carry != 0:
+            if l != None:
+                nowVal = carry + l.val
+                l = l.next
+            else:
+                nowVal = carry
+            newNode = ListNode(nowVal % 10)
+            nowNode.next = newNode
+            nowNode = newNode
+            carry = nowVal // 10
+        if l != None:
+            nowNode.next = l
+        return ret
+
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[第一篇要写些什么]]></title>
         <id>https://zrlreo.github.io/post/di-yi-pian-yao-xie-xie-shi-me/</id>

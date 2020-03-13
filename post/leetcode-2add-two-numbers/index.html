@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>【LeetCode】 2.Add Two Numbers | 不似咸鱼是咸鱼</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.0/css/all.min.css">
+<link rel="shortcut icon" href="https://zrlreo.github.io//favicon.ico?v=1584099285665">
+<link rel="stylesheet" href="https://zrlreo.github.io//styles/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="题干
+难度：Medium
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in r..." />
+    <meta name="keywords" content="leetcode" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://zrlreo.github.io/">
+        <img src="https://zrlreo.github.io//images/avatar.png?v=1584099285665" class="site-logo">
+        <h1 class="site-title">不似咸鱼是咸鱼</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="https://zrlreo.github.io/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="https://zrlreo.github.io/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="https://zrlreo.github.io/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="https://zrlreo.github.io/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      只想过平静的生活
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://zrlreo.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">【LeetCode】 2.Add Two Numbers</h2>
+            <div class="post-date">2020-03-13</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="题干">题干</h1>
+<p>难度：Medium</p>
+<p>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
+<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
+<p>Example:</p>
+<blockquote>
+<p>Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>
+Output: 7 -&gt; 0 -&gt; 8<br>
+Explanation: 342 + 465 = 807.</p>
+</blockquote>
+<h1 id="解析">解析</h1>
+<p>由于加数与结果都是逆序排列的，就直接每个节点之间相加。然后需要考虑的问题就是进位了，用一个变量记录上一位的进位，在计算当前位数的和时加上这个进位。</p>
+<p>退出循环时根据l1与l2的空与否有三种情况，需要分别讨论。需要注意的是在每一种情况下，不能直接将循环中得出的最后一个节点接上非空的那一个链表：因为可能还有进位。当l1或l2为空，将他们处理为同一变量名l。当l1与l2都为空时，考虑到进位问题，是不能直接返回的，只有在进位为0时才能返回，进位不为0就将其处理为多加一个存储的数字为0的节点。此时循环的结束条件是进位变量为0，但是lnext到为空时不应该停止处理，l为空时当前位值是取不到的，需要进行单独处理。</p>
+<h1 id="python">Python</h1>
+<pre><code># Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -&gt; ListNode:  
+        firstVal = l1.val + l2.val
+        ret = ListNode(firstVal % 10)
+        nowNode = ret
+        carry = firstVal // 10
+        l1 = l1.next
+        l2 = l2.next
+        while l1 != None and l2 != None:
+            nowVal = carry + l1.val + l2.val
+            newNode = ListNode(nowVal % 10)
+            nowNode.next = newNode
+            nowNode = newNode
+            carry = nowVal // 10
+            l1 = l1.next
+            l2 = l2.next
+ 
+        if l1 != None:
+            l = l1
+        elif l2 != None:
+            l = l2
+        else:
+            if carry == 0:
+                return ret
+            else:
+                l = ListNode(0)
+        while carry != 0:
+            if l != None:
+                nowVal = carry + l.val
+                l = l.next
+            else:
+                nowVal = carry
+            newNode = ListNode(nowVal % 10)
+            nowNode.next = newNode
+            nowNode = newNode
+            carry = nowVal // 10
+        if l != None:
+            nowNode.next = l
+        return ret
+
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://zrlreo.github.io/tag/Gtrwi0tSm/" class="tag">
+                    leetcode
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://zrlreo.github.io/post/di-yi-pian-yao-xie-xie-shi-me/">
+                  <h3 class="post-title">
+                    第一篇要写些什么
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
