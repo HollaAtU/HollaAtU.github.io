@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>【LeetCode】 3. Longest Substring Without Repeating Characters | 不似咸鱼是咸鱼</title>
+<title>【LeetCode】 4. Median of Two Sorted Arrays | 不似咸鱼是咸鱼</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -21,11 +21,9 @@
 
 
     <meta name="description" content="题干
-难度：Medium
-Given a string, find the length of the longest substring without repeating characters.
-Example 1:
-
-Input: &..." />
+难度：Hard
+There are two sorted arrays nums1 and nums2 of size m and n respectively.
+Find the median of the two sorted a..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -99,66 +97,62 @@ Input: &..." />
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">【LeetCode】 3. Longest Substring Without Repeating Characters</h2>
+            <h2 class="post-title">【LeetCode】 4. Median of Two Sorted Arrays</h2>
             <div class="post-date">2020-03-14</div>
             
             <div class="post-content" v-pre>
               <h1 id="题干">题干</h1>
-<p>难度：Medium</p>
-<p>Given a string, find the length of the longest substring without repeating characters.</p>
+<p>难度：Hard</p>
+<p>There are two sorted arrays nums1 and nums2 of size m and n respectively.</p>
+<p>Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).</p>
+<p>You may assume nums1 and nums2 cannot be both empty.</p>
 <p>Example 1:</p>
 <blockquote>
-<p>Input: &quot;abcabcbb&quot;<br>
-Output: 3<br>
-Explanation: The answer is &quot;abc&quot;, with the length of 3.</p>
+<p>nums1 = [1, 3]<br>
+nums2 = [2]</p>
+<p>The median is 2.0</p>
 </blockquote>
 <p>Example 2:</p>
 <blockquote>
-<p>Input: &quot;bbbbb&quot;<br>
-Output: 1<br>
-Explanation: The answer is &quot;b&quot;, with the length of 1.</p>
-</blockquote>
-<p>Example 3:</p>
-<blockquote>
-<p>Input: &quot;pwwkew&quot;<br>
-Output: 3<br>
-Explanation: The answer is &quot;wke&quot;, with the length of 3.<br>
-Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.</p>
+<p>nums1 = [1, 2]<br>
+nums2 = [3, 4]</p>
+<p>The median is (2 + 3)/2 = 2.5</p>
 </blockquote>
 <h1 id="解析">解析</h1>
-<h2 id="思路一set">思路一：set（）</h2>
-<p>使用while循环，如果字符不在set中，就添加进去；如果在set中，就把left对应的字符给remove。需要注意的是，移动left的次数不一定就是1次，因为新添加的right字符出现的位置不一定刚刚就是left指向的位置。set的个数最多的值即为最长子串。</p>
+<p>设定两个变量i和j，用这两个变量分别分割数组1和数组2，将左半部分合并，将右半部分合并，左半部分的最大值小于右半部分的最小值，且左右两个部分的数量相等或者差1。数量相等时，中位数=（左边最大值+右边最小值）/2；数量差1时，左边比右边多一个，中位数等于左边最大值。</p>
 <h1 id="python">Python</h1>
-<pre><code>class Solution(object):
-    def lengthOfLongestSubstring(self, s):
-        left, right = 0, 0
-        chars = set()
-        res = 0
-        while left &lt; len(s) and right &lt; len(s):
-            if s[right] in chars:
-                if s[left] in chars:
-                    chars.remove(s[left])
-                left += 1
-            else:
-                chars.add(s[right])
-                right += 1
-                res = max(res, len(chars))
-        return res
-</code></pre>
-<h2 id="思路二一次遍历字典">思路二：一次遍历+字典</h2>
-<p>当right向后遍历的过程中，如果这个字符在字典中，说明这个字符在前面出现过，即这个区间已经不是题目要求的不含重复字符的区间了，因此，需要移动left到上次right字符在字典中出现的位置的下一个位置。然后用right更新字典，res记录最大区间长度。<br>
-#Python</p>
 <pre><code>class Solution:
-    def lengthOfLongestSubstring(self, s: str) -&gt; int:
-        left,right=0,0
-        res=0
-        chars=dict()
-        for right in range(len(s)):
-            if s[right] in chars:
-                left=max(left,chars[s[right]]+1)
-            chars[s[right]]=right
-            res=max(res,right-left+1)
-        return res
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -&gt; float:
+        m = len(nums1)
+        n = len(nums2)
+        if m&gt;n:
+            m,n,nums1,nums2 = n,m,nums2,nums1
+        imax = m
+        imin = 0
+        half_ls = int((m+n+1)/2)
+        while imin&lt;=imax:
+            i = int((imax+imin)/2)
+            j = half_ls - i
+            if i &lt; m and nums1[i]&lt;nums2[j-1]:
+                imin = i + 1
+            elif i &gt; 0 and nums1[i-1]&gt;nums2[j]:
+                imax = i - 1
+            else:
+                if i == 0:
+                    max_left = nums2[j-1]
+                elif j == 0:
+                    max_left  = nums1[i-1]
+                else:
+                    max_left = max(nums1[i-1],nums2[j-1])
+                if (m+n)%2 == 1:
+                    return max_left
+                if i == m:
+                    min_right = nums2[j]
+                elif j == n:
+                    min_right = nums1[i]
+                else:
+                    min_right = min(nums1[i],nums2[j])
+                return (max_left+min_right)/2.0
 </code></pre>
 
             </div>
@@ -166,9 +160,9 @@ Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and 
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://zrlreo.github.io/post/leetcode-2add-two-numbers/">
+                <a href="https://zrlreo.github.io/post/leetcode-3-longest-substring-without-repeating-characters/">
                   <h3 class="post-title">
-                    【LeetCode】 2.Add Two Numbers
+                    【LeetCode】 3. Longest Substring Without Repeating Characters
                   </h3>
                 </a>
               </div>
