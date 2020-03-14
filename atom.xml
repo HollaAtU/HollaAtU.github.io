@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zrlreo.github.io/</id>
     <title>不似咸鱼是咸鱼</title>
-    <updated>2020-03-13T12:16:44.652Z</updated>
+    <updated>2020-03-14T10:16:13.496Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zrlreo.github.io/"/>
     <link rel="self" href="https://zrlreo.github.io/atom.xml"/>
@@ -10,6 +10,71 @@
     <logo>https://zrlreo.github.io/images/avatar.png</logo>
     <icon>https://zrlreo.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 不似咸鱼是咸鱼</rights>
+    <entry>
+        <title type="html"><![CDATA[【LeetCode】 3. Longest Substring Without Repeating Characters]]></title>
+        <id>https://zrlreo.github.io/post/leetcode-3-longest-substring-without-repeating-characters/</id>
+        <link href="https://zrlreo.github.io/post/leetcode-3-longest-substring-without-repeating-characters/">
+        </link>
+        <updated>2020-03-14T07:53:59.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="题干">题干</h1>
+<p>难度：Medium</p>
+<p>Given a string, find the length of the longest substring without repeating characters.</p>
+<p>Example 1:</p>
+<blockquote>
+<p>Input: &quot;abcabcbb&quot;<br>
+Output: 3<br>
+Explanation: The answer is &quot;abc&quot;, with the length of 3.</p>
+</blockquote>
+<p>Example 2:</p>
+<blockquote>
+<p>Input: &quot;bbbbb&quot;<br>
+Output: 1<br>
+Explanation: The answer is &quot;b&quot;, with the length of 1.</p>
+</blockquote>
+<p>Example 3:</p>
+<blockquote>
+<p>Input: &quot;pwwkew&quot;<br>
+Output: 3<br>
+Explanation: The answer is &quot;wke&quot;, with the length of 3.<br>
+Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.</p>
+</blockquote>
+<h1 id="解析">解析</h1>
+<h2 id="思路一set">思路一：set（）</h2>
+<p>使用while循环，如果字符不在set中，就添加进去；如果在set中，就把left对应的字符给remove。需要注意的是，移动left的次数不一定就是1次，因为新添加的right字符出现的位置不一定刚刚就是left指向的位置。set的个数最多的值即为最长子串。</p>
+<h1 id="python">Python</h1>
+<pre><code>class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        left, right = 0, 0
+        chars = set()
+        res = 0
+        while left &lt; len(s) and right &lt; len(s):
+            if s[right] in chars:
+                if s[left] in chars:
+                    chars.remove(s[left])
+                left += 1
+            else:
+                chars.add(s[right])
+                right += 1
+                res = max(res, len(chars))
+        return res
+</code></pre>
+<h2 id="思路二一次遍历字典">思路二：一次遍历+字典</h2>
+<p>当right向后遍历的过程中，如果这个字符在字典中，说明这个字符在前面出现过，即这个区间已经不是题目要求的不含重复字符的区间了，因此，需要移动left到上次right字符在字典中出现的位置的下一个位置。然后用right更新字典，res记录最大区间长度。<br>
+#Python</p>
+<pre><code>class Solution:
+    def lengthOfLongestSubstring(self, s: str) -&gt; int:
+        left,right=0,0
+        res=0
+        chars=dict()
+        for right in range(len(s)):
+            if s[right] in chars:
+                left=max(left,chars[s[right]]+1)
+            chars[s[right]]=right
+            res=max(res,right-left+1)
+        return res
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[【LeetCode】 2.Add Two Numbers]]></title>
         <id>https://zrlreo.github.io/post/leetcode-2add-two-numbers/</id>
