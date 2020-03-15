@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.0/css/all.min.css">
-<link rel="shortcut icon" href="https://zrlreo.github.io//favicon.ico?v=1584191822738">
+<link rel="shortcut icon" href="https://zrlreo.github.io//favicon.ico?v=1584273533726">
 <link rel="stylesheet" href="https://zrlreo.github.io//styles/main.css">
 
 
@@ -35,7 +35,7 @@ Input: &..." />
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://zrlreo.github.io/">
-        <img src="https://zrlreo.github.io//images/avatar.png?v=1584191822738" class="site-logo">
+        <img src="https://zrlreo.github.io//images/avatar.png?v=1584273533726" class="site-logo">
         <h1 class="site-title">不似咸鱼是咸鱼</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -146,8 +146,8 @@ Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and 
         return res
 </code></pre>
 <h2 id="思路二一次遍历字典">思路二：一次遍历+字典</h2>
-<p>当right向后遍历的过程中，如果这个字符在字典中，说明这个字符在前面出现过，即这个区间已经不是题目要求的不含重复字符的区间了，因此，需要移动left到上次right字符在字典中出现的位置的下一个位置。然后用right更新字典，res记录最大区间长度。<br>
-#Python</p>
+<p>当right向后遍历的过程中，如果这个字符在字典中，说明这个字符在前面出现过，即这个区间已经不是题目要求的不含重复字符的区间了，因此，需要移动left到上次right字符在字典中出现的位置的下一个位置。然后用right更新字典，res记录最大区间长度。</p>
+<h1 id="python-2">Python</h1>
 <pre><code>class Solution:
     def lengthOfLongestSubstring(self, s: str) -&gt; int:
         left,right=0,0
@@ -176,7 +176,7 @@ Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and 
                 <div class="next">下一篇</div>
                 <a href="https://zrlreo.github.io/post/leetcode-2add-two-numbers/">
                   <h3 class="post-title">
-                    【LeetCode】 2.Add Two Numbers
+                    【LeetCode】 2. Add Two Numbers
                   </h3>
                 </a>
               </div>
