@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zrlreo.github.io/</id>
     <title>不似咸鱼是咸鱼</title>
-    <updated>2020-03-15T11:59:00.263Z</updated>
+    <updated>2020-03-16T10:02:15.891Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zrlreo.github.io/"/>
     <link rel="self" href="https://zrlreo.github.io/atom.xml"/>
@@ -10,6 +10,60 @@
     <logo>https://zrlreo.github.io/images/avatar.png</logo>
     <icon>https://zrlreo.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 不似咸鱼是咸鱼</rights>
+    <entry>
+        <title type="html"><![CDATA[【LeetCode】 102. Binary Tree Level Order Traversal]]></title>
+        <id>https://zrlreo.github.io/post/leetcode-102-binary-tree-level-order-traversal/</id>
+        <link href="https://zrlreo.github.io/post/leetcode-102-binary-tree-level-order-traversal/">
+        </link>
+        <updated>2020-03-16T09:13:56.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="题干">题干</h1>
+<p>Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).</p>
+<p>For example:<br>
+Given binary tree [3,9,20,null,null,15,7],</p>
+<blockquote>
+<p>3<br>
+/ <br>
+9  20<br>
+/  <br>
+15   7</p>
+</blockquote>
+<p>return its level order traversal as:</p>
+<blockquote>
+<p>[<br>
+[3],<br>
+[9,20],<br>
+[15,7]<br>
+]</p>
+</blockquote>
+<h1 id="解析">解析</h1>
+<p>为了层次遍历树，首先考虑如何分隔每层。利用队列，同时用null分隔每层，算法：首先root入队，然后入队一个Null，接着采用递归，每次处理一个节点，都将其子节点（left和right）放到队列中。然后不断的出队， 如果出队的是null，则表示这一层已经结束了，就继续push一个null。</p>
+<h1 id="python">Python</h1>
+<pre><code># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def levelOrder(self, root: TreeNode) -&gt; List[List[int]]:
+        if root is None:
+            return []
+        result = []
+
+        def add_to_result(level, node):#将当前节点，当前所在的level以及结果数组传递给递归函数
+            if level &gt; len(result) - 1:
+                result.append([])
+            result[level].append(node.val)#将节点的值添加到level参数对应结果数组元素中
+            if node.left:
+                add_to_result(level+1, node.left)
+            if node.right:
+                add_to_result(level+1, node.right)
+        
+        add_to_result(0, root)
+        return result</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[【LeetCode】 94. Binary Tree Inorder Traversal]]></title>
         <id>https://zrlreo.github.io/post/leetcode-94-binary-tree-inorder-traversal/</id>
