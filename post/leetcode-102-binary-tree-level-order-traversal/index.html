@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.0/css/all.min.css">
-<link rel="shortcut icon" href="https://zrlreo.github.io//favicon.ico?v=1584352920263">
+<link rel="shortcut icon" href="https://zrlreo.github.io//favicon.ico?v=1584438860552">
 <link rel="stylesheet" href="https://zrlreo.github.io//styles/main.css">
 
 
@@ -31,7 +31,7 @@ Given a binary tree, return the level order traversal of its nodes' values. (ie,
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://zrlreo.github.io/">
-        <img src="https://zrlreo.github.io//images/avatar.png?v=1584352920263" class="site-logo">
+        <img src="https://zrlreo.github.io//images/avatar.png?v=1584438860552" class="site-logo">
         <h1 class="site-title">不似咸鱼是咸鱼</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -105,9 +105,9 @@ Given a binary tree, return the level order traversal of its nodes' values. (ie,
 Given binary tree [3,9,20,null,null,15,7],</p>
 <blockquote>
 <p>3<br>
-/ <br>
+/ \<br>
 9  20<br>
-/  <br>
+/  \<br>
 15   7</p>
 </blockquote>
 <p>return its level order traversal as:</p>
@@ -132,19 +132,19 @@ class Solution:
     def levelOrder(self, root: TreeNode) -&gt; List[List[int]]:
         if root is None:
             return []
-        result = []
+        res = []
 
         def add_to_result(level, node):#将当前节点，当前所在的level以及结果数组传递给递归函数
-            if level &gt; len(result) - 1:
-                result.append([])
-            result[level].append(node.val)#将节点的值添加到level参数对应结果数组元素中
+            if level &gt; len(res) - 1:
+                res.append([])
+            res[level].append(node.val)#将节点的值添加到level参数对应结果数组元素中
             if node.left:
                 add_to_result(level+1, node.left)
             if node.right:
                 add_to_result(level+1, node.right)
         
         add_to_result(0, root)
-        return result</code></pre>
+        return res</code></pre>
 
             </div>
             

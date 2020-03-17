@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>【LeetCode】 3. Longest Substring Without Repeating Characters | 不似咸鱼是咸鱼</title>
+<title>【LeetCode】 103. Binary Tree Zigzag Level Order Traversal | 不似咸鱼是咸鱼</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -21,12 +21,8 @@
 
 
     <meta name="description" content="题干
-难度：Medium
-Given a string, find the length of the longest substring without repeating characters.
-Example 1:
-
-Input: &..." />
-    <meta name="keywords" content="leetcode" />
+Given a binary tree, return the zigzag level order traversal of its nodes' values. (ie, from left to right, then righ..." />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div id="app" class="main">
@@ -99,84 +95,68 @@ Input: &..." />
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">【LeetCode】 3. Longest Substring Without Repeating Characters</h2>
-            <div class="post-date">2020-03-14</div>
+            <h2 class="post-title">【LeetCode】 103. Binary Tree Zigzag Level Order Traversal</h2>
+            <div class="post-date">2020-03-16</div>
             
             <div class="post-content" v-pre>
               <h1 id="题干">题干</h1>
-<p>难度：Medium</p>
-<p>Given a string, find the length of the longest substring without repeating characters.</p>
-<p>Example 1:</p>
+<p>Given a binary tree, return the zigzag level order traversal of its nodes' values. (ie, from left to right, then right to left for the next level and alternate between).</p>
+<p>For example:<br>
+Given binary tree [3,9,20,null,null,15,7],</p>
 <blockquote>
-<p>Input: &quot;abcabcbb&quot;<br>
-Output: 3<br>
-Explanation: The answer is &quot;abc&quot;, with the length of 3.</p>
+<p>3<br>
+/ \<br>
+9  20<br>
+/  \<br>
+15   7</p>
 </blockquote>
-<p>Example 2:</p>
+<p>return its zigzag level order traversal as:</p>
 <blockquote>
-<p>Input: &quot;bbbbb&quot;<br>
-Output: 1<br>
-Explanation: The answer is &quot;b&quot;, with the length of 1.</p>
-</blockquote>
-<p>Example 3:</p>
-<blockquote>
-<p>Input: &quot;pwwkew&quot;<br>
-Output: 3<br>
-Explanation: The answer is &quot;wke&quot;, with the length of 3.<br>
-Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.</p>
+<p>[<br>
+[3],<br>
+[20,9],<br>
+[15,7]<br>
+]</p>
 </blockquote>
 <h1 id="解析">解析</h1>
-<h2 id="思路一set">思路一：set（）</h2>
-<p>使用while循环，如果字符不在set中，就添加进去；如果在set中，就把left对应的字符给remove。需要注意的是，移动left的次数不一定就是1次，因为新添加的right字符出现的位置不一定刚刚就是left指向的位置。set的个数最多的值即为最长子串。</p>
+<p>思路同102，主要判断是不是偶数层，决定尾部添加还是首部添加</p>
 <h1 id="python">Python</h1>
-<pre><code>class Solution(object):
-    def lengthOfLongestSubstring(self, s):
-        left, right = 0, 0
-        chars = set()
-        res = 0
-        while left &lt; len(s) and right &lt; len(s):
-            if s[right] in chars:
-                if s[left] in chars:
-                    chars.remove(s[left])
-                left += 1
+<pre><code># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def zigzagLevelOrder(self, root: TreeNode) -&gt; List[List[int]]:
+        if root is None:
+            return []
+        res = []
+
+        def add_to_result(level, node):#将当前节点，当前所在的level以及结果数组传递给递归函数
+            if level &gt; len(res) - 1:
+                res.append([])
+            if level % 2 == 0: 
+                res[level].append(node.val)#尾部添加
             else:
-                chars.add(s[right])
-                right += 1
-                res = max(res, len(chars))
-        return res
-</code></pre>
-<h2 id="思路二一次遍历字典">思路二：一次遍历+字典</h2>
-<p>当right向后遍历的过程中，如果这个字符在字典中，说明这个字符在前面出现过，即这个区间已经不是题目要求的不含重复字符的区间了，因此，需要移动left到上次right字符在字典中出现的位置的下一个位置。然后用right更新字典，res记录最大区间长度。</p>
-<h1 id="python-2">Python</h1>
-<pre><code>class Solution:
-    def lengthOfLongestSubstring(self, s: str) -&gt; int:
-        left,right=0,0
-        res=0
-        chars=dict()
-        for right in range(len(s)):
-            if s[right] in chars:
-                left=max(left,chars[s[right]]+1)
-            chars[s[right]]=right
-            res=max(res,right-left+1)
-        return res
-</code></pre>
+                res[level].insert(0,node.val)#首部添加
+            if node.left:
+                add_to_result(level+1, node.left)
+            if node.right:
+                add_to_result(level+1, node.right)
+        
+        add_to_result(0, root)
+        return res</code></pre>
 
             </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://zrlreo.github.io/tag/Gtrwi0tSm/" class="tag">
-                    leetcode
-                  </a>
-                
-              </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://zrlreo.github.io/post/leetcode-2add-two-numbers/">
+                <a href="https://zrlreo.github.io/post/leetcode-102-binary-tree-level-order-traversal/">
                   <h3 class="post-title">
-                    【LeetCode】 2. Add Two Numbers
+                    【LeetCode】 102. Binary Tree Level Order Traversal
                   </h3>
                 </a>
               </div>

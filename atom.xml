@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zrlreo.github.io/</id>
     <title>不似咸鱼是咸鱼</title>
-    <updated>2020-03-16T10:02:15.891Z</updated>
+    <updated>2020-03-17T09:54:24.659Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zrlreo.github.io/"/>
     <link rel="self" href="https://zrlreo.github.io/atom.xml"/>
@@ -10,6 +10,110 @@
     <logo>https://zrlreo.github.io/images/avatar.png</logo>
     <icon>https://zrlreo.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 不似咸鱼是咸鱼</rights>
+    <entry>
+        <title type="html"><![CDATA[【LeetCode】 144. Binary Tree Preorder Traversal]]></title>
+        <id>https://zrlreo.github.io/post/leetcode-144-binary-tree-preorder-traversal/</id>
+        <link href="https://zrlreo.github.io/post/leetcode-144-binary-tree-preorder-traversal/">
+        </link>
+        <updated>2020-03-17T08:45:09.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="题干">题干</h1>
+<p>Given a binary tree, return the preorder traversal of its nodes' values.</p>
+<p>Example:</p>
+<blockquote>
+<p>Input: [1,null,2,3]<br>
+1<br>
+<br>
+2<br>
+/<br>
+3</p>
+</blockquote>
+<blockquote>
+<p>Output: [1,2,3]</p>
+</blockquote>
+<p>#解析<br>
+前序遍历的顺序是根-左-右</p>
+<p>思路是：<br>
+1.先将根结点入栈<br>
+2.出栈一个元素，将右节点和左节点依次入栈<br>
+3.重复 2 的步骤<br>
+#Python</p>
+<pre><code># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def preorderTraversal(self, root: TreeNode) -&gt; List[int]:
+        if not root: return []
+        stack = [root]
+        res = []
+        while stack:
+            node = stack.pop()
+            res.append(node.val)
+            if node.right: stack.append(node.right)
+            if node.left: stack. append(node.left)
+        return res</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【LeetCode】 103. Binary Tree Zigzag Level Order Traversal]]></title>
+        <id>https://zrlreo.github.io/post/leetcode-103-binary-tree-zigzag-level-order-traversal/</id>
+        <link href="https://zrlreo.github.io/post/leetcode-103-binary-tree-zigzag-level-order-traversal/">
+        </link>
+        <updated>2020-03-16T10:19:10.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="题干">题干</h1>
+<p>Given a binary tree, return the zigzag level order traversal of its nodes' values. (ie, from left to right, then right to left for the next level and alternate between).</p>
+<p>For example:<br>
+Given binary tree [3,9,20,null,null,15,7],</p>
+<blockquote>
+<p>3<br>
+/ \<br>
+9  20<br>
+/  \<br>
+15   7</p>
+</blockquote>
+<p>return its zigzag level order traversal as:</p>
+<blockquote>
+<p>[<br>
+[3],<br>
+[20,9],<br>
+[15,7]<br>
+]</p>
+</blockquote>
+<h1 id="解析">解析</h1>
+<p>思路同102，主要判断是不是偶数层，决定尾部添加还是首部添加</p>
+<h1 id="python">Python</h1>
+<pre><code># Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def zigzagLevelOrder(self, root: TreeNode) -&gt; List[List[int]]:
+        if root is None:
+            return []
+        res = []
+
+        def add_to_result(level, node):#将当前节点，当前所在的level以及结果数组传递给递归函数
+            if level &gt; len(res) - 1:
+                res.append([])
+            if level % 2 == 0: 
+                res[level].append(node.val)#尾部添加
+            else:
+                res[level].insert(0,node.val)#首部添加
+            if node.left:
+                add_to_result(level+1, node.left)
+            if node.right:
+                add_to_result(level+1, node.right)
+        
+        add_to_result(0, root)
+        return res</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[【LeetCode】 102. Binary Tree Level Order Traversal]]></title>
         <id>https://zrlreo.github.io/post/leetcode-102-binary-tree-level-order-traversal/</id>
@@ -22,9 +126,9 @@
 Given binary tree [3,9,20,null,null,15,7],</p>
 <blockquote>
 <p>3<br>
-/ <br>
+/ \<br>
 9  20<br>
-/  <br>
+/  \<br>
 15   7</p>
 </blockquote>
 <p>return its level order traversal as:</p>
@@ -49,19 +153,19 @@ class Solution:
     def levelOrder(self, root: TreeNode) -&gt; List[List[int]]:
         if root is None:
             return []
-        result = []
+        res = []
 
         def add_to_result(level, node):#将当前节点，当前所在的level以及结果数组传递给递归函数
-            if level &gt; len(result) - 1:
-                result.append([])
-            result[level].append(node.val)#将节点的值添加到level参数对应结果数组元素中
+            if level &gt; len(res) - 1:
+                res.append([])
+            res[level].append(node.val)#将节点的值添加到level参数对应结果数组元素中
             if node.left:
                 add_to_result(level+1, node.left)
             if node.right:
                 add_to_result(level+1, node.right)
         
         add_to_result(0, root)
-        return result</code></pre>
+        return res</code></pre>
 ]]></content>
     </entry>
     <entry>
