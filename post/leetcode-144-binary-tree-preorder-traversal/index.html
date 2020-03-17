@@ -8,11 +8,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.0/css/all.min.css">
-<link rel="shortcut icon" href="https://zrlreo.github.io//favicon.ico?v=1584438860552">
+<link rel="shortcut icon" href="https://zrlreo.github.io//favicon.ico?v=1584442461610">
 <link rel="stylesheet" href="https://zrlreo.github.io//styles/main.css">
 
 
 
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css" />
+  
+
+  
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
@@ -26,13 +32,13 @@ Example:
 
 Input: [1,null,2,3]
 1
-
+\
 2
 /
 3
 
 
-Out..." />
+Ou..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -42,7 +48,7 @@ Out..." />
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://zrlreo.github.io/">
-        <img src="https://zrlreo.github.io//images/avatar.png?v=1584438860552" class="site-logo">
+        <img src="https://zrlreo.github.io//images/avatar.png?v=1584442461610" class="site-logo">
         <h1 class="site-title">不似咸鱼是咸鱼</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -116,7 +122,7 @@ Out..." />
 <blockquote>
 <p>Input: [1,null,2,3]<br>
 1<br>
-<br>
+\<br>
 2<br>
 /<br>
 3</p>
@@ -124,13 +130,13 @@ Out..." />
 <blockquote>
 <p>Output: [1,2,3]</p>
 </blockquote>
-<p>#解析<br>
-前序遍历的顺序是根-左-右</p>
+<h1 id="解析">解析</h1>
+<p>前序遍历的顺序是根-左-右</p>
 <p>思路是：<br>
 1.先将根结点入栈<br>
 2.出栈一个元素，将右节点和左节点依次入栈<br>
-3.重复 2 的步骤<br>
-#Python</p>
+3.重复 2 的步骤</p>
+<h1 id="python">Python</h1>
 <pre><code># Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
@@ -164,6 +170,12 @@ class Solution:
             
 
             
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
 
           </div>
 
@@ -191,6 +203,29 @@ var app = new Vue({
     hljs.initHighlightingOnLoad()
   </script>
 
+
+
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: [''],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 

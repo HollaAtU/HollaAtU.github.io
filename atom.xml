@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zrlreo.github.io/</id>
     <title>不似咸鱼是咸鱼</title>
-    <updated>2020-03-17T09:54:24.659Z</updated>
+    <updated>2020-03-17T10:54:27.247Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zrlreo.github.io/"/>
     <link rel="self" href="https://zrlreo.github.io/atom.xml"/>
@@ -22,7 +22,7 @@
 <blockquote>
 <p>Input: [1,null,2,3]<br>
 1<br>
-<br>
+\<br>
 2<br>
 /<br>
 3</p>
@@ -30,13 +30,13 @@
 <blockquote>
 <p>Output: [1,2,3]</p>
 </blockquote>
-<p>#解析<br>
-前序遍历的顺序是根-左-右</p>
+<h1 id="解析">解析</h1>
+<p>前序遍历的顺序是根-左-右</p>
 <p>思路是：<br>
 1.先将根结点入栈<br>
 2.出栈一个元素，将右节点和左节点依次入栈<br>
-3.重复 2 的步骤<br>
-#Python</p>
+3.重复 2 的步骤</p>
+<h1 id="python">Python</h1>
 <pre><code># Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
