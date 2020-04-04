@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zrlreo.github.io/</id>
     <title>不似咸鱼是咸鱼</title>
-    <updated>2020-04-04T12:54:37.005Z</updated>
+    <updated>2020-04-04T14:28:28.687Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zrlreo.github.io/"/>
     <link rel="self" href="https://zrlreo.github.io/atom.xml"/>
@@ -10,6 +10,44 @@
     <logo>https://zrlreo.github.io/images/avatar.png</logo>
     <icon>https://zrlreo.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 不似咸鱼是咸鱼</rights>
+    <entry>
+        <title type="html"><![CDATA[【LeetCode】 199. Binary Tree Right Side View]]></title>
+        <id>https://zrlreo.github.io/post/leetcode-199-binary-tree-right-side-view/</id>
+        <link href="https://zrlreo.github.io/post/leetcode-199-binary-tree-right-side-view/">
+        </link>
+        <updated>2020-04-04T12:57:12.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="题干">题干</h1>
+<p>Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.</p>
+<p>Example:</p>
+<blockquote>
+<p>Input: [1,2,3,null,5,null,4]<br>
+Output: [1, 3, 4]<br>
+Explanation:<br>
+1            &lt;---<br>
+/   <br>
+2     3         &lt;---<br>
+\     <br>
+5     4       &lt;---</p>
+</blockquote>
+<h1 id="解析">解析</h1>
+<p>和102很像。从上至下一层一层遍历二叉树，每层从左至右遍历当前层所有节点，将每个节点的子节点储存起来作为下一层要遍历的节点，将当前层的最后一个节点的值添加至最终结果，直到所有层遍历完毕</p>
+<h1 id="python">Python</h1>
+<pre><code>class Solution:
+    def rightSideView(self, root: TreeNode) -&gt; List[int]:
+        if not root:
+            return []
+        stack=[root]
+        res=[]
+        while stack!=[]:
+            p=[]
+            res.append(stack[-1].val)
+            for i in stack:
+                if i.left:p.append(i.left)
+                if i.right:p.append(i.right)
+            stack=p
+        return res</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[【LeetCode】 145. Binary Tree Postorder Traversal]]></title>
         <id>https://zrlreo.github.io/post/leetcode-145-binary-tree-postorder-traversal/</id>
