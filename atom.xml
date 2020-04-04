@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zrlreo.github.io/</id>
     <title>不似咸鱼是咸鱼</title>
-    <updated>2020-03-17T11:22:06.577Z</updated>
+    <updated>2020-04-04T12:54:37.005Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://zrlreo.github.io/"/>
     <link rel="self" href="https://zrlreo.github.io/atom.xml"/>
@@ -10,6 +10,45 @@
     <logo>https://zrlreo.github.io/images/avatar.png</logo>
     <icon>https://zrlreo.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 不似咸鱼是咸鱼</rights>
+    <entry>
+        <title type="html"><![CDATA[【LeetCode】 145. Binary Tree Postorder Traversal]]></title>
+        <id>https://zrlreo.github.io/post/leetcode-145-binary-tree-postorder-traversal/</id>
+        <link href="https://zrlreo.github.io/post/leetcode-145-binary-tree-postorder-traversal/">
+        </link>
+        <updated>2020-03-17T10:15:27.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="题干">题干</h1>
+<p>Given a binary tree, return the postorder traversal of its nodes' values.</p>
+<p>Example:</p>
+<blockquote>
+<p>Input: [1,null,2,3]<br>
+1<br>
+\<br>
+2<br>
+/<br>
+3</p>
+</blockquote>
+<blockquote>
+<p>Output: [3,2,1]</p>
+</blockquote>
+<h1 id="解析">解析</h1>
+<p>迭代，按照根节点，左节点，右节点的顺序入栈，然后逐个添加到res的头部。</p>
+<h1 id="python">Python</h1>
+<pre><code>class Solution:
+    def postorderTraversal(self, root: TreeNode) -&gt; List[int]:
+        if not root:
+            return []
+        stack=[root]
+        res=[]
+        while stack:
+            node=stack.pop()
+            if node.left:
+                stack.append(node.left)
+            if node.right:
+                stack.append(node.right)
+            res.insert(0,node.val)
+        return res</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[【LeetCode】 144. Binary Tree Preorder Traversal]]></title>
         <id>https://zrlreo.github.io/post/leetcode-144-binary-tree-preorder-traversal/</id>
