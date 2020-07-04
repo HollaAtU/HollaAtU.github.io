@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hollaatu.github.io/</id>
-    <title>不似咸鱼是咸鱼</title>
-    <updated>2020-07-04T15:17:00.670Z</updated>
+    <title>可乐不冰怎么喝</title>
+    <updated>2020-07-04T15:17:37.097Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hollaatu.github.io/"/>
     <link rel="self" href="https://hollaatu.github.io/atom.xml"/>
-    <subtitle>只想过平静的生活</subtitle>
+    <subtitle>会不会有颗星为我守望</subtitle>
     <logo>https://hollaatu.github.io/images/avatar.png</logo>
     <icon>https://hollaatu.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, 不似咸鱼是咸鱼</rights>
+    <rights>All rights reserved 2020, 可乐不冰怎么喝</rights>
     <entry>
         <title type="html"><![CDATA[【LeetCode】 199. Binary Tree Right Side View]]></title>
         <id>https://hollaatu.github.io/post/leetcode-199-binary-tree-right-side-view/</id>
